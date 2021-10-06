@@ -1,0 +1,459 @@
+/*Yazı Tipi için tanımlananlar*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Herr+Von+Muellerhoff&display=swap');
+
+
+
+/*containerdan gelen hazır margin ve padding i sıfırlarız*/
+/*reset kodları*/
+/*tüm etiketler için ortak özellik tanımlanır*/
+*,
+*::before,
+*::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: 0;
+}
+
+a,
+a:link,
+a:visited{
+    text-decoration: none;/*altı çizili istemiyoruz*/
+    outline: none;/*altçizgileri istemiyoruz*/
+    border: none;
+}
+
+ul,
+li{
+    list-style: none;/*listelerin başalrındaki imleç kaldırılır*/
+    margin: 0;
+    padding: 0;
+}
+
+section,
+span,
+p{
+    margin: 0;
+    padding: 0;
+    outline: none;
+    border: none;
+
+}
+
+.container{
+    max-width: 1170px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.header{
+    background-image: url(coffee.jpg);
+    background-position: center;
+    background-size: cover; /*tüm fotoğrafın kullanılmasını sağlar-arkaplanı tamamen kapsar*/
+    background-attachment: fixed;
+    height: 100vh; /**tüm ekranı kaplamasını sağladık*/
+
+}
+
+.header-navbar{
+    display: flex; /*flex verildiğinle coffee yazısı ve liste yan yana gelir*/
+    align-items: center;
+    justify-content: space-between;/* coffee ve listenin birbirinden ayrılması sağlandı*/
+    padding: 40px 0;
+}
+
+.header-logo{
+    font-size: 16px;
+    letter-spacing: 2px;
+    border-bottom: 5px solid black;
+    border-radius: 35px;
+    padding-bottom: 5px;
+}
+
+ul{
+    display: flex ; /*listedekiler yan yana sıralanır*/
+}
+
+li{
+    margin-left: 27px;/*liste elemanlarının arasına boşluk koyuldu*/
+}
+
+li:first-child{ /*ilk liste elamanımızı seçeriz*/
+    margin-right: 70px;
+}
+
+a{
+    color: #000;
+    font-weight: bold;
+    font-size:15px ;
+
+}
+.header-text{
+    position: absolute; /*absolute sayesinde top left right bottom etiketleri ile hizalama yapabiliriz*/
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%); /*sayfada hizalama için kullanılır- koordinat düzleminde x üzerinden hizalama yapıldı tam ortalama sağlandı.*/
+    display: flex; /*yatayda ve dikeyde hizalar*/
+    align-items: center;/*dikeyde ortalar*/
+    justify-content: center; /*yatayda ortalar*/
+    flex-direction: column; /*sütun şeklinde hizalanmasını sağlar*/
+    
+}
+
+h1{
+    font-size: 8.5rem;
+    font-weight: 100;
+    line-height: 0.4; /*satır boşluğu için kullanılır*/
+    letter-spacing: 2px;
+    font-family: 'Herr Von Muellerhoff', cursive;
+    color: #755b37;
+}
+    
+
+.first-letter{
+    font-size: 10.3;
+    font-family: 'Herr Von Muellerhoff', cursive;
+}
+
+h3{
+    margin-bottom: 25px;
+    font-size: 22px;
+}
+
+.btn-coffee{
+    display: block;/* block tüm satırı kaplıyor anlamına gelir*/
+    color: white;
+    background-color: #755b37;
+    padding: 10px 15px;
+    border-top-left-radius: 35px;
+    border-bottom-right-radius: 35px;
+    position: relative; /*.btn-coffee::after de absolute kullandığımız için ana kapsayıcıya relative vermemiz gerekir */
+    overflow: hidden; /*affet ile gelen buy yazısı sebebiyle oluşabilecek taşmalar engellendi*/
+}
+
+.btn-coffee::after{
+    content: "Buy"; /*after ve before efektlerinde contenti yazmazsak değer görünmez*/
+    position: absolute;/*top left le hizalama yapacağız*/
+    top: 100%;
+    left: 0;
+    background-color: #5b2a02;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: .5s;
+} 
+
+.btn-coffee:hover::after{
+    top: 0; /*üstüne gelindiğinde 0 a hizalansın dirkt üste çıksın*/
+
+}
+
+.about{
+    margin-bottom: 150px;
+
+}
+
+.about-tittle{
+    margin: 60px 0;
+}
+
+ h2{
+    width: 100%;
+    text-align: center;
+    margin: 0 auto;
+    color: #5b2a02;
+    font-size: 30px;
+    font-weight: 600;
+}
+
+ h2::after{
+    content: "";
+    width: 30px;
+    height: 3px;
+    background-color: #5b2a02;
+    margin: 0 auto;
+    display: block;
+    margin-top: 10px;
+    
+}
+
+.about-content{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap ;/*Ekran boyutuna göre alt satıra inmesini sağlar-/*taşan veriler aşağıya otomatik geçer*/
+}
+
+.about-image{
+    width: 40%;
+}
+
+.about-image img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /*fotoğrafınımızın en boy oranını korumasını sağlarız*/
+
+}
+
+.about-text{
+    width: 40%;
+}
+
+h4{
+    margin-bottom: 25px;
+    text-align: center;
+    font-size: 60px;
+    color: #755b37;
+    font-family: 'Herr Von Muellerhoff', cursive;
+    letter-spacing: 0.5rem;
+    font-weight: 100;
+}
+
+#asterisk{
+    color: #755b37;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.about-text p{
+    font-size: 15px;
+    text-align: center;
+    color: #2c2727;
+}
+
+.portfolio{
+    display: flex; /*yan yana sıralandı*/
+    flex-wrap: wrap; /*taşan veriler aşağıya otomatik geçer*/
+}
+
+.portfolio-item{
+    width: 25%;
+    height: 300px;
+    overflow: hidden;/*taşmalar engellendi*/
+    position: relative;
+}
+
+.portfolio-item img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /*fotoğrafların en boy özelliklerini ve içeriğini korur*/
+    transition: .5s;
+}
+
+.overlay{
+    width: 100%;
+    height: 100%;
+    background-color: #5b2a02;
+    position: absolute;
+    top: 100;
+    left: 0;
+    opacity: 0.8;
+    color: white;
+    font-size: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: .5s;
+}
+
+.portfolio-item:hover .overlay{
+    top: 0;
+}
+
+.portfolio-item:hover img{
+    transform: scale(1.1);/* verilen elemanların x ve y de ölçeğiyle oynayabiliyoruz -büyültüp külütebiliriz*/
+
+}
+
+/*Contact*/
+.contact{
+    padding: 10px 0;  
+}
+
+.contact h2{
+    width: 100%;
+    text-align: center;
+    margin: 0 auto;
+    color: #5b2a02;
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.contact h2::after{
+    content: "";
+    width: 30px;
+    height: 3px;
+    background-color: #5b2a02;
+    margin: 0 auto;
+    display: block;
+    margin-top: 10px;   
+}
+
+.contact-content{
+    margin-top: 60px;
+    display: flex;
+    justify-content: space-evenly;
+
+}
+
+.contact-item{
+    display: flex;
+    align-items: center;
+    flex-basis: 33%;
+    margin-bottom: 100px;
+    flex-direction: column;
+}
+
+.contact.item i{
+    font-size: 25px;
+    margin-bottom: 30px;
+    color: #5b2a02;
+}
+
+.contact-item p{
+    font-size: 14px;
+    line-height: 33px;
+}
+
+/**Footer*/
+
+.footer h2{
+    width: 100%;
+    text-align: center;
+    margin: 0 auto;
+    color: #5b2a02;
+    font-size: 30px;
+    font-weight: 600; 
+    padding: 55px 0 ;
+}
+
+.footer h2::after{
+    content: "";
+    width: 30px;
+    height: 3px;
+    background-color: #5b2a02;
+    margin: 0 auto;
+    display: block;
+    margin-top: 10px;   
+}
+
+.footer{
+    background-color:black ;
+
+}
+
+.footer-copyright{
+    color: white;
+    text-align: center;
+    flex-basis: 55%; /**kaplayacağı alan belirllenmiş olur*/
+    line-height: 2;/*satır boşluğu verildi*/
+    font-size: 13px;
+    margin-bottom: 25px;
+}
+
+.footer-content{
+    display: flex; /*yan yana hizalandı*/
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.footer-social i{
+    color: white;
+    margin-bottom: 50px;
+    font-size: 25px;
+    padding: 0 45px;
+}
+
+.footer-social:first-child{
+    margin-left: 70px;
+}
+
+#menu-icon{
+    font-size: 25px;
+    display: none;/*her ekranda çıkmasını istemeğimiz için görünür yapmıyoruz-Belli bir pikselin altına düşünce çıkmasını istiyoruz*/
+    margin-left: 20px;
+}
+/*Responsive for Menu*/
+@media only screen and (max-width: 800px){
+
+    .header-menu ul{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;/*sütun şeklinde*/
+        position: absolute;
+        top: 100px;
+        left: 0px;
+        background-color: #2b1402da;
+        width: 100%;
+        overflow: hidden;/*taşmalar engellendi*/
+        transition: all .5s  ;
+    }
+    .header-menu ul li{
+        margin-right: 50px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+
+    .header-menu ul li a{
+        color: white;
+    }
+
+    .header-menu #menu-icon{
+        display: block;
+        cursor: pointer;
+    }
+}
+
+/*Responsive for About*/
+
+@media only screen and (max-width: 990px){
+    .about-image{
+        width: 100%;
+        margin-bottom:30px;
+    }
+
+    .about-text{
+        width: 100%;
+        margin-bottom: 30px;
+    }
+    .about-text{
+        width: 100%;
+    }
+}
+
+/*Responsive for Portfolio*/
+@media only screen and (max-width: 990px){
+    .portfolio .portfolio-item{
+        flex-basis: 50%;
+    }
+}
+
+@media only screen and (max-width: 580px){
+    .portfolio .portfolio-item{
+        flex-basis: 100%;
+    }
+}
+
+@media only screen and (max-width: 800px){
+
+    .contact-content{
+        flex-direction: column;
+    }
+
+    .contact-item{
+        margin-top: 30px;
+    }
+    .contact-item p{
+        width: 100%;
+        text-align: center;
+    }
+}
+
+
+
+
