@@ -2,6 +2,6 @@
  Html/Css/JavaScript
  
  <br>
- <img src="img/9.jpg" />
+ <img src="img/9.png" />
  <br>
- <img src="img/10.jpg" />
+ <img src="img/10.png" />
